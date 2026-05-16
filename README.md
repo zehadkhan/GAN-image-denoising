@@ -5,14 +5,6 @@ A deep learning project implementing two-phase facial image restoration using Ge
 **Bangladesh University of Business and Technology (BUBT)**
 Department of Computer Science & Engineering
 
-| Member | ID |
-|---|---|
-| Md. Khairul Islam | 22231203041 |
-| Md. Aman Ullah | 22231203030 |
-| Shabbir Bin Zia | 22231203018 |
-| Md. Zehad Khan | 22231203004 |
-| Waliullah Khan Roky | 22231203026 |
-
 **Supervisor:** Sondip Poul Singh — **Course Teacher:** Md. Shahiduzzaman
 
 ---
