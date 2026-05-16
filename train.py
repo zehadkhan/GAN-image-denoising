@@ -34,6 +34,9 @@ def train():
     opt_g = optim.Adam(G.parameters(), lr=config.LEARNING_RATE, betas=(config.BETA1, config.BETA2))
     opt_d = optim.Adam(D.parameters(), lr=config.LEARNING_RATE, betas=(config.BETA1, config.BETA2))
 
+    scheduler_g = optim.lr_scheduler.CosineAnnealingLR(opt_g, T_max=config.NUM_EPOCHS, eta_min=1e-6)
+    scheduler_d = optim.lr_scheduler.CosineAnnealingLR(opt_d, T_max=config.NUM_EPOCHS, eta_min=1e-6)
+
     g_loss_fn = GeneratorLoss(config.LAMBDA_L1, config.LAMBDA_PERCEPTUAL,
                               config.LAMBDA_SSIM, config.LAMBDA_ADV).to(device)
     d_loss_fn = GANLoss().to(device)
@@ -87,6 +90,9 @@ def train():
 
         log.write(f'{epoch},{mode.strip()},{g_avg:.4f},{d_avg:.4f},{val_psnr:.4f},{val_ssim:.4f}\n')
         log.flush()
+
+        scheduler_g.step()
+        scheduler_d.step()
 
         if val_psnr > best_psnr:
             best_psnr = val_psnr

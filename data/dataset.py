@@ -17,6 +17,11 @@ class CelebADenoiseDataset(Dataset):
         self.image_paths = all_images[:n_train] if split == 'train' else all_images[n_train:]
         self.transform = transforms.Compose([
             transforms.Resize((image_size, image_size)),
+            transforms.RandomHorizontalFlip(),
+            transforms.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1),
+            transforms.ToTensor(),
+        ]) if split == 'train' else transforms.Compose([
+            transforms.Resize((image_size, image_size)),
             transforms.ToTensor(),
         ])
 
