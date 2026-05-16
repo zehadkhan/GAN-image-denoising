@@ -1,0 +1,31 @@
+import os
+
+# Paths
+DATA_DIR_PHASE2 = "data/300w_lp"
+CHECKPOINT_DIR_PHASE2 = "checkpoints/phase2"
+RESULTS_DIR_PHASE2 = "results/phase2"
+LOG_DIR_PHASE2 = "logs/phase2"
+PHASE1_CHECKPOINT = "checkpoints/best_model.pth"
+
+# Dataset
+IMAGE_SIZE = 128
+NUM_POSE_CLASSES = 5
+POSE_ANGLES = [-90, -45, 0, 45, 90]
+POSE_TOLERANCE = 22.5
+NUM_WORKERS = 4
+
+# Training
+BATCH_SIZE = 16
+NUM_EPOCHS = 100
+LEARNING_RATE = 2e-4
+BETA1 = 0.5
+BETA2 = 0.999
+
+# Loss weights
+LAMBDA_RECON = 10.0
+LAMBDA_IDENTITY = 5.0
+LAMBDA_ADV = 1.0
+LAMBDA_POSE = 2.0
+
+DEVICE = "cuda"
+SAVE_INTERVAL = 10
